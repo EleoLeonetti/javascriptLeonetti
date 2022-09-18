@@ -1,97 +1,37 @@
-class Productos {
-    constructor(id, nombre, precio, tipo, disponible){
+class Producto {
+    constructor(id, nombre, precio, tipo, disponible, img, detalle, apto = "A PARTIR DE LOS 3 AÑOS"){
         this.id = id;
         this.nombre = nombre;
-        this.precio = Number(precio);
+        this.precio = precio;
         this.tipo = tipo;
         this.disponible = disponible;
-    }
+        this.img = img;
+        this.detalle = detalle;
+        this.apto = apto;    
+    };
 }
 
 const stock =  [
-new Productos (1, "Silla Mara", Number(4500), "muebles", true),
-new Productos (2, "Silla Taruca", Number(4500), "muebles", true),
-new Productos (3, "Silla Yaguarete", Number(4500), "muebles", true),
-new Productos (4, "Silla Yurumi", Number(4500), "muebles", true),
-new Productos (5, "Mesa Ombu", Number(5000), "muebles", true),
-new Productos (6, "Baul Ballena", Number(5000), "muebles", true),
-new Productos (7, "Rompecabezas Taruca", Number(800), "juegos", true),
-new Productos (8, "Rompecabezas Aguara Guazu", Number(800), "juegos", true),
-new Productos (9, "Rompecabezas Yaguarete", Number(800), "juegos", true),
-new Productos (10, "Kit Completo", Number(3900), "juegos", true),
-]
+new Producto (1, "Silla Mara", 4500, "muebles", true, "./img/silla-mara.png", "Silla inspirada en la postura sentada de la Mara y sus largas patas delanteras."),
+new Producto (2, "Silla Taruca", 4500, "muebles", true, "./img/silla-taruca.png", "Silla inspirada en la pequeña ornamenta y grandes orejas de La Taruca"),
+new Producto (3, "Silla Yaguarete", 4500, "muebles", true, "./img/silla-yaguarete.png",  "Silla inspirada en la postura del Yaguareté cuando descansa sobre los árboles"),
+new Producto (4, "Silla Yurumi", 4500, "muebles", true, "./img/silla-yurumi.png", "Silla inspirada en la trompa del Yurumí. Cuenta con un estante para guardar cosas"),
+new Producto (5, "Mesa Ombu", 5000, "muebles", true, "./img/mesa-ombu.png", "Mesa inspirada en las raíces anchas y las ramas abiertas del Ombú"),
+new Producto (6, "Baul Ballena", 5000, "muebles", true, "./img/baul-ballena.png", "Baúl y en sí mismo un juego inspirado en La Ballena Franca Austral"),
+new Producto (7, "Rompecabezas: Kit individual", 800, "juegos", true,"./img/juego-aguara.png", "Contiene: un animal para armar, una base, una tempera y un pincel."),
+new Producto (8, "Rompecabezas: Kit Completo", 3900, "juegos", true, "./img/juego-kitcompleto.png", "Contiene: seis animales para armar, seis bases, seis temperas y un pincel."),
+];
 
+let section = document.querySelector(".catalogo");
+let plantilla = document.querySelector("template");
+let card = plantilla.content.querySelector(".card");
 
-const carrito = [ ];
-
-const muebles = stock.filter((m) => m.tipo.includes("muebles"));
-const juegos = stock.filter((j) => j.tipo.includes("juegos"));
-
-
-const listaStock = stock.map(stock => stock.id + ' ' + stock.nombre + ' ' + '$' + stock.precio);
-const listaMuebles = muebles.map(muebles => muebles.id + ' ' + muebles.nombre + ' ' + '$' + muebles.precio);
-const listaJuegos = juegos.map(juegos => juegos.id + ' ' + juegos.nombre + ' ' + '$' + juegos.precio);
-
-
-
-
-function inicio(){
-    let bienvenido = prompt('Bienvenido a Kimkelen. Seleccione que tipo de producto le interesa: \r A- Muebles \r B- Juegos \r C- TODOS: INICIAR COMPRA');
-    if(bienvenido == "A"){
-        alert(listaMuebles);
-        inicio();
-    }if(bienvenido == "B"){
-        alert(listaJuegos);
-        inicio();
-    }if(bienvenido == "C"){
-        agregarProducto();
-    }else{
-        inicio();
-    }
-    };
-
-
-function agregarProducto(){
-    let productoId = Number(prompt('Ingrese N° de ID del producto que desea comprar: \r' + listaStock + ' \r Ingrese 00 para finalizar compra y ver carrito'));
-    if(productoId != 00){
-    let producto = stock.find(product => product.id===productoId);
-    carrito.push(producto);
-    agregarProducto();
-    }if(productoId == 00){
-        verCarrito();
-    }
-}
-
-
-function calculoTotal(carrito){
-    let total = 0;
-    carrito.forEach(producto=> {
-        total += producto.precio
-    });
-    return total;
-}
-
-function verCarrito(){
-    alert('EL TOTAL DE SU COMPRA ES: $' + calculoTotal(carrito))
-    let entrada = prompt('FIN para finalizar compra \r SEGUIR para continuar comprando ')
-    if(entrada == "FIN"){
-        alert("Gracias por su compra!");
-    }if(entrada == "SEGUIR"){
-        agregarProducto();
-    }else{
-        alert("Gracias por visitarnos. Vuelva pronto");
-    } 
-}
-
-inicio();
-
-
-
-
-
-
-
-
-
-
-
+stock.forEach((Producto)=>{
+    let cardClon = card.cloneNode(true);
+    section.appendChild(cardClon);
+    cardClon.children[0].src = Producto.img;
+    cardClon.children[1].innerText = Producto.nombre;
+    cardClon.children[2].innerText = Producto.detalle;
+    cardClon.children[3].innerText = Producto.apto;
+    cardClon.children[4].innerText = "ARS $ " + Producto.precio + ".-";
+});

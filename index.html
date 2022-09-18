@@ -1,376 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="language" content="spanish" />
-    <meta name="country" content="argentina" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
       integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+      referrerpolicy="no-referrer"/>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Productos Kimkelen</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container-fluid">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href=""
-                >inicio</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href=""
-                >mobiliario</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href=""
-                >juegos</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href=""
-                >nosotros</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href=""
-                >contacto</a
-              >
-            </li>
-          </ul>
-    </div>
+    <link rel="stylesheet" href="./style.css">
+    <title>Desafío: interactuar con HTML</title>
+</head>
+<body>
+    <nav class = "barra">
         <button
           type="button"
-          class="btn btn-primary btnModal"
+          class="btn btn-primary btnCarrito"
           data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-        >
+          data-bs-target="#exampleModal">
           <i class="fa-solid fa-cart-shopping"></i>
         </button>
-      </div>
     </nav>
-    <main class="container-fluid pageMobiliario">
-      <img src="../img/logo-medium.png" alt="logo kimkelen" class="logoPages" />
-      <h2 class = "titulo"> PRODUCTOS </h2>
-      <p class="pageDescripcion">
-        La colección de muebles y juegos Kimkelen es para niños de entre 2 y 6 años de
-        edad. Cada pieza está inspirada en la fauna autóctona argentina con el
-        objetivo de introducir a las infancias a los animales originarios del
-        país y crear consciencia ecólogica y ambiental. Nos animamos a romper
-        el mito de de jirafas, leones y tigres para presentarles al aguara
-        guazú, al yaguaré, al yurumí.
-      </p>
+    <main class="presentacion">
+        <img src="./img/logo-medium.png" alt="logo Kimkelen" class = "logo">
+        <p class = "descripcion">La colección de muebles y juegos Kimkelen es para niños a partir de los 3 años de edad. Cada pieza está inspirada en la fauna autóctona argentina con el objetivo de introducir a las infancias a los animales originarios del país y crear consciencia ecólogica y ambiental. Nos animamos a romper el mito de de jirafas, leones y tigres para presentarles al aguara guazú, al yaguaré, al yurumí.</p>
     </main>
-    <section class="productos d-flex flex-wrap justify-content-center">
-      <div class="card" style="width: 18rem">
-        <img
-          src="../img/silla-mara.png"
-          class="card-img-top"
-          alt="silla mara"
-        />
-        <div class="card-body">
-          <h5 class="card-title">silla mara</h5>
-          <p class="card-text">
-            El diseño de esta silla está inspirado en la postura sentada de la
-            Mara. Destacan sus largas patas delanteras que la diferencian del
-            conejo.
-          </p>
-          <a href="#" class="btn btn-primary btnPages">ARS $4.500.-</a>
-        </div>
+    <section class="catalogo"> 
+      <template>
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+          <h5 class="card-title card-body"></h5>
+          <p class="card-text card-body"></p>
+          <p class="card-text card-body"></p>
+          <a href="#" class="btn btn-primary btnCard"></a>
       </div>
-      <div class="card" style="width: 18rem">
-        <img
-          src="../img/silla-taruca.png"
-          class="card-img-top"
-          alt="silla taruca"
-        />
-        <div class="card-body">
-          <h5 class="card-title">silla taruca</h5>
-          <p class="card-text">
-            Del diseño de esta silla se destaca en particular la representación
-            de la pequeña ornamenta de La Taruca y sus grandes orejas.
-          </p>
-          <a href="#" class="btn btn-primary btnPages">ARS $4.500.-</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem">
-        <img
-          src="../img/silla-yaguarete.png"
-          class="card-img-top"
-          alt="silla yaguareté"
-        />
-        <div class="card-body">
-          <h5 class="card-title">silla yaguareté</h5>
-          <p class="card-text">
-            El diseño de esta silla Kimkelen encuentra su inspiración en la
-            postura del yaguareté cuando descansa sobre los árboles.
-          </p>
-          <a href="#" class="btn btn-primary btnPages">ARS $4.500.-</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem">
-        <img
-          src="../img/silla-yurumi.png"
-          class="card-img-top"
-          alt="silla yurumí"
-        />
-        <div class="card-body">
-          <h5 class="card-title">silla yurumí</h5>
-          <p class="card-text">
-            De este diseño se destaca la representación de la trompa del Yurumí.
-            Cuenta con un estante para guardar cosas.
-          </p>
-          <a href="#" class="btn btn-primary btnPages">ARS $4.500.-</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem">
-        <img src="../img/mesa-ombu.png" class="card-img-top" alt="mesa ombú" />
-        <div class="card-body">
-          <h5 class="card-title">mesa ombú</h5>
-          <p class="card-text">
-            La mesa, como centro de reunión es el único producto Kimkelen
-            inspirado en la fauna Argentina, las raices anchas y ramas abiertas
-            del Ombú.
-          </p>
-          <a href="#" class="btn btn-primary btnPages">ARS $5.000.-</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem">
-        <img
-          src="../img/baul-ballena.png"
-          class="card-img-top"
-          alt="baul ballena"
-        />
-        <div class="card-body">
-          <h5 class="card-title">baul ballena</h5>
-          <p class="card-text">
-            Inspirado en la ballena franca austral este producto es tanto un
-            baul como un juego en sí mismo. Cuenta con ruedas para trasladarlo
-            con facilidad.
-          </p>
-          <a href="#" class="btn btn-primary btnPages">ARS $6.000.-</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem">
-        <img
-          src="./img/juego-taruca.png"
-          class="card-img-top"
-          alt="rompecabezas taruca"
-        />
-        <div class="card-body">
-          <h5 class="card-title">taruca</h5>
-          <p class="card-text">
-            Contiene: un animal para armar, una base, una tempera y un pincel.
-          </p>
-          <p class="card-text">A PARTIR DE LOS 3 AÑOS</p>
-          <a href="#" class="btn btn-primary btnPages">ARS$ 800.-</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem">
-        <img
-          src="./img/juego-aguara.png"
-          class="card-img-top"
-          alt="rompecabezas aguará guazú"
-        />
-        <div class="card-body">
-          <h5 class="card-title">aguara guazú</h5>
-          <p class="card-text">
-            Contiene: un animal para armar, una base, una tempera y un pincel.
-          </p>
-          <p class="card-text">A PARTIR DE LOS 3 AÑOS</p>
-          <a href="#" class="btn btn-primary btnPages">ARS$ 800.-</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem">
-        <img
-          src="../img/baul-ballena.png"
-          class="card-img-top"
-          alt="rompecabezas yaguareté"
-        />
-        <div class="card-body">
-          <h5 class="card-title">yaguareté</h5>
-          <p class="card-text">
-            Contiene: un animal para armar, una base, una tempera y un pincel.
-          </p>
-          <p class="card-text">A PARTIR DE LOS 3 AÑOS</p>
-          <a href="#" class="btn btn-primary btnPages">ARS$ 800.-</a>
-        </div>
-      </div>
-      <div class="card mb-3" style="max-width: 540px">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img
-              src="../img/juego-kitcompleto.png"
-              class="img-fluid rounded-start"
-              alt="kit completo de rompecabezas"
-            />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">kit completo</h5>
-              <p class="card-text">
-                Contiene: seis animales para armar y pintar, seis bases, seis
-                temperas y un pincel.
-              </p>
-              <p class="card-text">A PARTIR DE LOS 3 AÑOS</p>
-              <a href="#" class="btn btn-primary btnPages">ARS$ 3.900.-</a>
-            </div>
-          </div>
-        </div>
-      </div>
+    </template>  
     </section>
-    <footer class="footer">
-      <div class="footerUno">
-        <h3 class="hfooter">seguinos</h3>
-        <a href="https://www.instagram.com/kimkelen.objetosautoctonos/"
-          ><i class="fa-brands fa-instagram redes"></i
-        ></a>
-        <a href="https://www.facebook.com/kimkelen.di"
-          ><i class="fa-brands fa-square-facebook redes"></i
-        ></a>
-      </div>
-      <div class="footerDos">
-        <ul>
-          <li>inicio</li>
-          <li>mobiliario</li>
-          <li>juegos</li>
-          <li>nosotros</li>
-          <li>contacto</li>
-        </ul>
-        <p>© Kimkelem, 2022</p>
-      </div>
-      <div class="footerTres">
-        <h3 class="hfooter">suscribite</h3>
-        <form
-          action=""
-          method="get"
-          enctype="application/x-www-form-urlencoded"
-        >
-          <input type="email" placeholder="email" id="suscripcion" />
-          <button type="submit" class="send">
-            <i class="fa-solid fa-paper-plane"></i>
-          </button>
-        </form>
-      </div>
-    </footer>
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">
-              Carrito de compras
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="card mb-3 cardmodal" style="max-width: 540px">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img
-                    src="../img/baul-ballena.png"
-                    class="img-fluid rounded-start"
-                    alt="..."
-                  />
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Baúl ballena</h5>
-                    <p class="card-text">1 Unidad</p>
-                    <p class="card-text">ARS $6.000.-</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card mb-3 cardmodal" style="max-width: 540px">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img
-                    src="../img/juego-kitcompleto.png"
-                    class="img-fluid rounded-start"
-                    alt="..."
-                  />
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Rompecabezas</h5>
-                    <p class="card-text"><strong> Kit completo</strong></p>
-                    <p class="card-text">1 Unidad</p>
-                    <p class="card-text">ARS $3.900.-</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary btnmodal"
-              data-bs-dismiss="modal"
-            >
-              Seguir comprando
-            </button>
-            <button type="button" class="btn btn-primary btnmodal">
-              Finalizar compra
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+
+
+
+
+
+
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
     <script src="./archivo.js"></script>
-  </body>
+</body>
 </html>
