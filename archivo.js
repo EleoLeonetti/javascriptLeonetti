@@ -22,9 +22,12 @@ new Producto (7, "Rompecabezas: Kit individual", 800, "juegos", true,"./img/jueg
 new Producto (8, "Rompecabezas: Kit Completo", 3900, "juegos", true, "./img/juego-kitcompleto.png", "Contiene: seis animales para armar, seis bases, seis temperas y un pincel."),
 ];
 
+const carrito = [ ];
+
 let section = document.querySelector(".catalogo");
-let plantilla = document.querySelector("template");
+let plantilla = document.querySelector(".tempCatalogo");
 let card = plantilla.content.querySelector(".card");
+
 
 stock.forEach((Producto)=>{
     let cardClon = card.cloneNode(true);
@@ -35,3 +38,22 @@ stock.forEach((Producto)=>{
     cardClon.children[3].innerText = Producto.apto;
     cardClon.children[4].innerText = "ARS $ " + Producto.precio + ".-";
 });
+
+const formulario = document.querySelector(".suscripcion")
+const mail = document.querySelector("#suscripcionMail")
+formulario.addEventListener("submit", validarFormulario)
+
+function validarFormulario(e){   
+    const confirmacion = document.createElement("p");
+    confirmacion.innerHTML = "Se suscribió correctamente";
+    document.querySelector(".mensaje").appendChild(confirmacion);
+}
+
+
+
+
+
+
+
+
+
