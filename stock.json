@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "nombre": "Silla Mara",
+        "precio": 5500,
+        "tipo": "muebles",
+        "img": "./img/silla-mara.png",
+        "descripcion": "Silla inspirada en la postura sentada de la Mara y sus largas patas delanteras."
+    },
+    {
+        "id": 2,
+        "nombre": "Silla Taruca",
+        "precio": 5500,
+        "tipo": "muebles",
+        "img": "./img/silla-taruca.png",
+        "descripcion": "Silla inspirada en la pequeña ornamenta y grandes orejas de La Taruca"
+    },
+    {
+        "id": 3,
+        "nombre": "Silla Yaguareté",
+        "precio": 5500,
+        "tipo": "muebles",
+        "img": "./img/silla-yaguarete.png",
+        "descripcion": "Silla inspirada en la postura del Yaguareté cuando descansa sobre los árboles"
+    },
+    {
+        "id": 4,
+        "nombre": "Silla Yurumí",
+        "precio": 5500,
+        "tipo": "muebles",
+        "img": "./img/silla-yurumi.png",
+        "descripcion": "Silla inspirada en la trompa del Yurumí. Cuenta con un estante para guardar cosas"
+    },
+    {
+        "id": 5,
+        "nombre": "Mesa Ombú",
+        "precio": 6000,
+        "tipo": "muebles",
+        "img": "./img/mesa-ombu.png",
+        "descripcion": "Mesa inspirada en las raíces anchas y las ramas abiertas del Ombú"
+    },
+    {
+        "id": 6,
+        "nombre": "Baúl Ballena",
+        "precio": 6000,
+        "tipo": "muebles",
+        "img": "./img/baul-ballena.png",
+        "descripcion":  "Baúl y en sí mismo un juego inspirado en La Ballena Franca Austral"
+    },
+    {
+        "id": 7,
+        "nombre": "Rompecabezas: Kit individual",
+        "precio": 800,
+        "tipo": "juegos",
+        "img": "./img/juego-aguara.png",
+        "descripcion": "Contiene: un animal para armar, una base, una tempera y un pincel."
+    },
+    {
+        "id": 8,
+        "nombre": "Rompecabezas: Kit Completo",
+        "precio": 3900,
+        "tipo": "juegos",
+        "img": "./img/juego-kitcompleto.png",
+        "descripcion": "Contiene: seis animales para armar, seis bases, seis temperas y un pincel."
+    }
+]

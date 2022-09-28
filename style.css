@@ -20,6 +20,7 @@
 }
 .btnCarrito:hover {
   background-color: #14a095;
+  border: none;
 }
 .presentacion{
   height: auto;
@@ -54,7 +55,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
-.card {
+.cardStyle {
   border: 5px double #106567;
   margin-bottom: 5%;
 }
@@ -67,9 +68,13 @@
 .card-text {
   font-family: "Quicksand", sans-serif;
   color: #106567;
+  margin-bottom: 1px;
+}
+.cardPrecio{
+  font-weight: bold;
 }
 .btnCard {
-  width: 50%;
+  width: 70%;
   height: auto;
   margin-left: 5%;
   margin-bottom: 5%;
@@ -155,3 +160,43 @@
 .footerTres .send:hover {
   color: #14a095;
 }
+.modal-title{
+  font-family: "Quicksand", sans-serif;
+  color: #106567;
+  font-weight: bold;
+}
+.tabla{
+  width: 100%;
+}
+.tabla th{
+  width: 25%;
+  height: 30px;
+}
+.tablaTitulos{
+  font-family: "Quicksand", sans-serif;
+  color: #106567;
+  font-weight: bold;
+}
+.btN{
+  width: 25px;
+  height: 25px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  background-color: #106567;
+  border: none;
+  border-radius: 5px;
+  color: #f9fbf1;
+  font-weight: bold;
+}
+.btnVaciar{
+  width: 70px;
+  height: 30px;
+}
+table th{
+  text-align: center;
+}
+table td{
+  height: 50px;
+  text-align: center;
+}
+
