@@ -9,10 +9,10 @@ let carrito = {}
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchData()
-    if(localStorage.getItem('carrito')){
-        carrito = JSON.parse(localStorage.getItem('carrito'));
-        verCarrito();
-    }
+// Apliqué OPERADOR LOGICO OR
+    carrito = JSON.parse(localStorage.getItem('carrito')) || {}
+    verCarrito();
+
 })
 const fetchData = async () => {
     try {
@@ -58,9 +58,9 @@ const productoCarrito = objeto => {
         precio: objeto.querySelector('strong').textContent,
         cantidad: 1
     } 
-    if(carrito.hasOwnProperty(productoC.id)){
-        productoC.cantidad = carrito[productoC.id].cantidad + 1;
-    }
+// Apliqué acceso condicional a un objeto
+    carrito(productoC?.id || (productoC.cantidad = carrito[productoC.id].cantidad + 1));
+// El spread ya lo había aplicado previamente. Está era una de las cosas que te comentaba para la 2da entrega que había buscado por fuera del material del curso. Más adelante lo utilicé una vezmás
     carrito[productoC.id] = {...productoC};
     verCarrito();
 }
@@ -107,7 +107,9 @@ const detalleCarrito = ()=> {
  const botonesCantidad = e => {
     if(e.target.classList.contains('btnMas')){
         const producto = carrito[e.target.dataset.id];
+// El ++ también ya lo había incorporado en segunda entrega. Este se había utilizado alguna vez en clase.
         producto.cantidad ++
+// Spread operator
         carrito[e.target.dataset.id] = {...producto}
         verCarrito()
     }
