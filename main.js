@@ -4,12 +4,13 @@ const templateCarrito = document.querySelector(".tempCarrito").content;
 const templateTotales = document.querySelector(".tempTotales").content;
 const comprados = document.querySelector(".detalleCompra");
 const footerCarrito = document.querySelector(".footerCarrito");
+const btnFinalizar = document.querySelector(".btnFinalizar");
+const suscribirse = document.querySelector(".send")
 
 let carrito = {}
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchData()
-// Apliqué OPERADOR LOGICO OR
     carrito = JSON.parse(localStorage.getItem('carrito')) || {}
     verCarrito();
 
@@ -30,6 +31,19 @@ document.addEventListener('click', e => {
 
 comprados.addEventListener('click', e => {
     botonesCantidad(e)
+})
+
+//  Desafio: incorporar librerías
+btnFinalizar.addEventListener('click', e =>{
+    finalizarCompra(e)
+})
+//  Desafio: incorporar librerías
+suscribirse.addEventListener('click', () =>{
+    Swal.fire({
+        icon: 'succes',
+        title: 'Gracias por suscribirse',
+        text: 'Pronto recibirá novedades y ofertas especiales!',
+      })
 })
 
 const cardProductos = data => {
@@ -58,9 +72,11 @@ const productoCarrito = objeto => {
         precio: objeto.querySelector('strong').textContent,
         cantidad: 1
     } 
-// Apliqué acceso condicional a un objeto
-    carrito(productoC?.id || (productoC.cantidad = carrito[productoC.id].cantidad + 1));
-// El spread ya lo había aplicado previamente. Está era una de las cosas que te comentaba para la 2da entrega que había buscado por fuera del material del curso. Más adelante lo utilicé una vezmás
+
+    if(carrito.hasOwnProperty(productoC.id)){
+        productoC.cantidad = carrito[productoC.id].cantidad + 1;
+    }
+
     carrito[productoC.id] = {...productoC};
     verCarrito();
 }
@@ -107,9 +123,7 @@ const detalleCarrito = ()=> {
  const botonesCantidad = e => {
     if(e.target.classList.contains('btnMas')){
         const producto = carrito[e.target.dataset.id];
-// El ++ también ya lo había incorporado en segunda entrega. Este se había utilizado alguna vez en clase.
         producto.cantidad ++
-// Spread operator
         carrito[e.target.dataset.id] = {...producto}
         verCarrito()
     }
@@ -120,5 +134,28 @@ const detalleCarrito = ()=> {
         delete carrito[e.target.dataset.id]
     }
     verCarrito()
+    }
+ }
+
+//  Desafio: incorporar librerías
+ finalizarCompra = e => {
+    if(Object.keys(carrito).length === 0){
+        Swal.fire({
+            title: 'No seleccionó ningún producto',
+            text: "Para iniciar compra agregue productos al carrito",
+            confirmButtonColor: '#106567',
+            confirmButtonText: 'Comprar'
+          })
+    }else{
+        const { value: email } = Swal.fire({
+            title: 'Muchas gracias por su compra',
+            input: 'email',
+            inputLabel: 'Deje su email y nos contactaremos a la brevedad',
+            inputPlaceholder: 'Ingrese su correo electrónico'
+          })
+          
+          if (email) {
+            Swal.fire(`Gracias! Pronto nos pondremos en contacto al email: ${email}`)
+          }
     }
  }
