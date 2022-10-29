@@ -1,11 +1,17 @@
 const section = document.querySelector(".catalogo");
 const plantilla = document.querySelector(".tempCatalogo").content;
+const btnCard = document.querySelector(".btnCard");
 const templateCarrito = document.querySelector(".tempCarrito").content;
 const templateTotales = document.querySelector(".tempTotales").content;
 const comprados = document.querySelector(".detalleCompra");
 const footerCarrito = document.querySelector(".footerCarrito");
 const btnFinalizar = document.querySelector(".btnFinalizar");
+const modalFin = document.querySelector(".modalFin");
+const formulario = document.querySelector(".formFin");
+const formNombre = document.querySelector(".formNombre");
+const formMail = document.querySelector(".formMail");
 const suscribirse = document.querySelector(".send")
+const inputSuscribirse = document.querySelector("#suscripcionMail");
 
 let carrito = {}
 
@@ -13,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchData()
     carrito = JSON.parse(localStorage.getItem('carrito')) || {}
     verCarrito();
-
 })
+
 const fetchData = async () => {
     try {
         const res = await fetch('stock.json');
@@ -27,24 +33,32 @@ const fetchData = async () => {
 
 document.addEventListener('click', e => {
     agregarCarrito(e);
+    notificacion(e);
 })
 
 comprados.addEventListener('click', e => {
     botonesCantidad(e)
 })
 
-//  Desafio: incorporar librerías
 btnFinalizar.addEventListener('click', e =>{
     finalizarCompra(e)
 })
-//  Desafio: incorporar librerías
-suscribirse.addEventListener('click', () =>{
+
+suscribirse.addEventListener('click', (e) =>{
+    if(inputSuscribirse.value == null || inputSuscribirse.value.length == 0){
+        Swal.fire('Dejanos tu email para recibir novedades')
+    }else{
     Swal.fire({
         icon: 'succes',
         title: 'Gracias por suscribirse',
-        text: 'Pronto recibirá novedades y ofertas especiales!',
+        text: 'Pronto recibirás novedades y ofertas especiales!',
       })
+    }
+      e.preventDefault();
 })
+
+
+formulario.addEventListener("submit", validarFormulario);
 
 const cardProductos = data => {
     data.forEach(producto => {
@@ -61,7 +75,23 @@ const cardProductos = data => {
 
 const agregarCarrito = e => {
     if (e.target.classList.contains('btnCard')) {
-        productoCarrito(e.target.parentElement)
+        productoCarrito(e.target.parentElement);
+    }
+}
+const notificacion = e => {
+    if (e.target.classList.contains('btnCard')){
+        Toastify({
+            text: "Producto agregado al carrito",     
+            duration: 2000,
+            gravity: "top",
+            position: "right",
+            style: {
+                background: "#e75217",
+              },
+            offset: {
+                y:50,
+            }
+            }).showToast();
     }
 }
 
@@ -72,11 +102,9 @@ const productoCarrito = objeto => {
         precio: objeto.querySelector('strong').textContent,
         cantidad: 1
     } 
-
     if(carrito.hasOwnProperty(productoC.id)){
         productoC.cantidad = carrito[productoC.id].cantidad + 1;
     }
-
     carrito[productoC.id] = {...productoC};
     verCarrito();
 }
@@ -137,7 +165,7 @@ const detalleCarrito = ()=> {
     }
  }
 
-//  Desafio: incorporar librerías
+
  finalizarCompra = e => {
     if(Object.keys(carrito).length === 0){
         Swal.fire({
@@ -146,16 +174,25 @@ const detalleCarrito = ()=> {
             confirmButtonColor: '#106567',
             confirmButtonText: 'Comprar'
           })
+
     }else{
-        const { value: email } = Swal.fire({
-            title: 'Muchas gracias por su compra',
-            input: 'email',
-            inputLabel: 'Deje su email y nos contactaremos a la brevedad',
-            inputPlaceholder: 'Ingrese su correo electrónico'
-          })
-          
-          if (email) {
-            Swal.fire(`Gracias! Pronto nos pondremos en contacto al email: ${email}`)
-          }
+        modalFin.style.display = "block";
+        window.addEventListener("click",function(event) {
+            if (event.target == modalFin) {
+              modalFin.style.display = "none";
+            }
+          });
+    }
+ }
+
+ function validarFormulario (e){
+    e.preventDefault();
+    if(formMail.value == null || formMail.value.length == 0 || formNombre.value == null || formNombre.value.length == 0){
+        Swal.fire('Por favor, completar todos los datos para que podamos contactarte')
+    }else{
+    Swal.fire({
+        title: `Gracias por tu compra, ${formNombre.value}`,
+        text: `Pronto recibirás novedades de tu compra al mail ${formMail.value}`,
+      })
     }
  }
